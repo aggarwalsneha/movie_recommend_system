@@ -24,6 +24,7 @@ $(function() {
     });
   });
 
+
   // This function will be invoked whenever you click on any recommended movie
   function recommendcard(e){
     var my_api_key = 'b825e9e04f6a6040f5841335218de11c';
@@ -182,6 +183,7 @@ $(function() {
         $("#loader").delay(500).fadeOut();
       },
       success: function(response) {
+        document.getElementById("myBtn").disabled = true;
         $('.results').html(response);
         $('#autoComplete').val('');
         $(window).scrollTop(0);
@@ -260,8 +262,9 @@ $(function() {
   }
 
 // function to let user rate the movie
-function rating()
+$(function rating()
 {
+  console.log("hello varun")
 var ratingStars = [...document.getElementsByClassName("rating__star")];
 var ratingResult = document.querySelector(".rating__result");
 
@@ -293,5 +296,43 @@ function printRatingResult(result, num = 0) {
 }
 
 executeRating(ratingStars, ratingResult);
+
+})
+
+
+function rating2()
+{
+  console.log("hello varun")
+var ratingStars = [...document.getElementsByClassName("rating__star")];
+var ratingResult = document.querySelector(".rating__result");
+
+printRatingResult(ratingResult);
+
+function executeRating2(stars, result) {
+   var starClassActive = "rating__star fas fa-star";
+   var starClassUnactive = "rating__star far fa-star";
+   var starsLength = stars.length;
+   let i;
+   stars.map((star) => {
+      star.onclick = () => {
+        i = stars.indexOf(star);
+         window.pass=i;
+         if (star.className.indexOf(starClassUnactive) !== -1) {
+            printRatingResult(result, i + 1);
+            for (i; i >= 0; --i) stars[i].className = starClassActive;
+         } else {
+           printRatingResult(result, i);
+           for (i=i+1; i < starsLength; ++i) {
+             stars[i].className = starClassUnactive;}
+            }
+      };
+   });
+}
+
+function printRatingResult(result, num = 0) {
+   result.textContent = `${num}/5`;
+}
+
+executeRating2(ratingStars, ratingResult);
 
 }
