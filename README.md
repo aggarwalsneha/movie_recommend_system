@@ -3,16 +3,16 @@ This is a movie recommendation system based on the tech stack:
 Frontend-HTML,CSS and Javascript
 Backend-Django
 
-ML algorithms used-TfIdf VEctorization
-                   Linear Kernel
-                   Content Based Filtering
+ML algorithms used-1. TfIdf VEctorization
+                   2. Linear Kernel
+                   3. Content Based Filtering
 
 Deployed through-Heroku
 
 Recommendation based on:
-Genres
-Cast and crew
-Popularity
+1. Genres
+2. Cast and crew
+3. Popularity
 
 Sorting algorithm used for Popularity based recommendations-Merge Sort
 
