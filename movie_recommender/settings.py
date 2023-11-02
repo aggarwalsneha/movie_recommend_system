@@ -78,13 +78,14 @@ WSGI_APPLICATION = 'movie_recommender.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-  'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'recommender_sys',
-        'USER' : 'sneha',
-        'PASSWORD' :'sneha',
-        'HOST': 'localhost'
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+  # 'default': {
+  #       'ENGINE': 'django.db.backends.postgresql',
+  #       'NAME' : 'recommender_sys',
+  #       'USER' : 'sneha',
+  #       'PASSWORD' :'sneha',
+  #       'HOST': 'localhost'
+  #   }
 }
 
 
